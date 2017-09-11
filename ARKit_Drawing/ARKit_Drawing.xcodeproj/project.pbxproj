@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		631947BA1F64A27000A9D533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631947B91F64A27000A9D533 /* AppDelegate.swift */; };
-		631947BC1F64A27000A9D533 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 631947BB1F64A27000A9D533 /* art.scnassets */; };
 		631947BE1F64A27000A9D533 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631947BD1F64A27000A9D533 /* ViewController.swift */; };
 		631947C11F64A27000A9D533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 631947BF1F64A27000A9D533 /* Main.storyboard */; };
 		631947C31F64A27000A9D533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 631947C21F64A27000A9D533 /* Assets.xcassets */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		631947B61F64A27000A9D533 /* ARKit_Drawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKit_Drawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		631947B91F64A27000A9D533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		631947BB1F64A27000A9D533 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		631947BD1F64A27000A9D533 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		631947C01F64A27000A9D533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		631947C21F64A27000A9D533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 				633FE5531F6688B9009438C3 /* MQShapeNode+HitTest.swift */,
 				631947BF1F64A27000A9D533 /* Main.storyboard */,
 				631947C21F64A27000A9D533 /* Assets.xcassets */,
-				631947BB1F64A27000A9D533 /* art.scnassets */,
 				631947C41F64A27000A9D533 /* LaunchScreen.storyboard */,
 				631947C71F64A27000A9D533 /* Info.plist */,
 			);
@@ -134,7 +131,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				631947BC1F64A27000A9D533 /* art.scnassets in Resources */,
 				631947C61F64A27000A9D533 /* LaunchScreen.storyboard in Resources */,
 				631947C31F64A27000A9D533 /* Assets.xcassets in Resources */,
 				631947C11F64A27000A9D533 /* Main.storyboard in Resources */,
