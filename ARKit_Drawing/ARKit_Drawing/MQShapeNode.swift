@@ -14,8 +14,8 @@ class MQShapeNode: SCNNode {
     
     var sceneView:ARSCNView?
     
-    var _beganAddVertices = false
-    var _quantity:Int = 0
+    var _beganAddVertices = false//存储本次的坐标是不是新的笔触
+    var _quantity:Int = 0//本次手势未结束之前一共添加了多少个顶点到数组中(抬起一次手算一次结束)
     
     private var _lineVertices:[SCNVector3] = []//线条信息
     private var _lineIndices:[UInt32] = []//线条顶点索引信息
@@ -44,8 +44,12 @@ class MQShapeNode: SCNNode {
             return
         }
         
+        //这里使用_quantity来控制 每三个顶点加进来重新绘制一次
+        
+        //旧的顶点加进来时候需要和上一个连接 新的顶点不需要
         if self._beganAddVertices == false {//重新再另外位置画线
             
+            //将旧的坐标点全部添加
             if self._quantity > 0 {
                 
                 for i in 0..<self._quantity-1 {
@@ -67,9 +71,10 @@ class MQShapeNode: SCNNode {
             self._lineVertices.append(vertice)
             self._quantity += 1
             
+            //每三个坐标点加进来处理一次
             if self._quantity >= 3 {
                 for i in 0..<self._quantity {
-
+                    
                     if (self._quantity - i + 1) <= self._lineVertices.count {
                         self._lineIndices.append(UInt32(self._lineVertices.count - (self._quantity - i + 1)))
                         self._lineIndices.append(UInt32(self._lineVertices.count - (self._quantity - i)))
@@ -109,7 +114,7 @@ class MQShapeNode: SCNNode {
     
     //MARK: 更新图像
     func updateDrawing() {
-
+        
         if self._lineVertices.count == 0 {
             self._lineIndices = []
             self.geometry = SCNGeometry();
@@ -122,7 +127,7 @@ class MQShapeNode: SCNNode {
             self._planeIndices = []
             self._planeVertices = []
             
-            //
+            //新线段添加四个顶点信息，旧线段添加两个顶点信息
             var i = 0
             let lineIndicesCount = self._lineIndices.count
             while i+1 < lineIndicesCount {
@@ -135,7 +140,10 @@ class MQShapeNode: SCNNode {
                 if isNewLine {
                     
                     let count = UInt32(self._planeVertices.count)
-                    //顶点索引
+                    //顶点索引，我这里逆向遍历顶点，两个三角形拼合一个矩形
+                    /* 顶点添加顺序1 2
+                     0 3 方便下次有重复点时直接取用 2，3
+                     */
                     self._planeIndices += [0+count, 2+count, 1+count,
                                            1+count, 2+count, 3+count]
                     
@@ -186,7 +194,8 @@ class MQShapeNode: SCNNode {
             
             self.geometry = geometry
         }
-    
+        
     }
     
 }
+
